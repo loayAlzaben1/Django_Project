@@ -1,0 +1,29 @@
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Centering the Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Table Styling */
+.table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn {
+    margin: 5px;
+}
+
+/* Status Badges */
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+}

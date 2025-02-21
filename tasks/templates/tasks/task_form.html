@@ -1,0 +1,26 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+    <h2 class="mb-4">{% if form.instance.pk %}Edit{% else %}Create{% endif %} Task</h2>
+    <form method="POST" class="bg-white p-4 rounded shadow-sm">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            {{ form.title }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+            {{ form.status }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Due Date</label>
+            {{ form.due_date }}
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="{% url 'task_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
