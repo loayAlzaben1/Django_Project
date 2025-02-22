@@ -1,42 +1,57 @@
-/* 🌟 General Styling */
+/* 🌟 Cool Animated Background */
 body {
-    background-color: #121212; /* Dark Mode Background */
-    font-family: 'Poppins', sans-serif; /* Modern Font */
-    color: white; /* Light Text */
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff512f, #dd2476);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
+/* ✨ Background Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* 🏆 Navbar */
+/* 📌 Navbar */
 .navbar {
-    background: linear-gradient(45deg, #6a11cb, #2575fc); /* Beautiful Gradient */
+    background: rgba(0, 0, 0, 0.6);
     padding: 15px;
+    backdrop-filter: blur(5px);
+    width: 100%;
 }
 
 .navbar-brand {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
 }
 
-/* 📌 Table Styling */
+/* 📜 Centered Page Content */
+.container {
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+/* 🏆 Table Styling */
 .table {
-    background: #1e1e1e;
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
 }
 
 .table th {
-    background-color: #333;
-    color: #ffcc00; /* Gold Titles */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffcc00;
 }
 
 .table td {
-    background-color: #252525;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* 🔘 Buttons */
@@ -44,6 +59,7 @@ body {
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
     font-weight: bold;
+    padding: 10px 15px;
 }
 
 .btn:hover {
@@ -58,37 +74,43 @@ body {
 }
 
 .badge-pending {
-    background-color: #ffcc00; /* Yellow for Pending */
+    background-color: #ffcc00;
     color: black;
 }
 
 .badge-progress {
-    background-color: #007bff; /* Blue for In Progress */
+    background-color: #007bff;
     color: white;
 }
 
 .badge-completed {
-    background-color: #28a745; /* Green for Completed */
+    background-color: #28a745;
     color: white;
 }
 
-/* 📜 Form Styling */
-form {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+/* 📜 Beautiful Form Styling */
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
+/* 🌟 Form Input Styling */
 form input,
 form select,
 form textarea {
-    background: #252525;
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 form input:focus,
@@ -96,4 +118,19 @@ form select:focus,
 form textarea:focus {
     outline: none;
     box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 📌 Center the Buttons */
+.w-100 {
+    display: block;
+    width: 100%;
+}
+
+/* 🌟 Footer */
+.footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
