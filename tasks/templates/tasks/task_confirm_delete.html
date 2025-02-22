@@ -1,12 +1,39 @@
 {% extends 'tasks/base.html' %}
 
 {% block content %}
-    <h2 class="text-center">Delete Task</h2>
-    <p class="text-center">Are you sure you want to delete "<strong>{{ task.title }}</strong>"?</p>
+    <div class="delete-container shadow-lg p-4 rounded-lg animate-fade-in text-center">
+        <h2 class="fw-bold text-danger mb-3">⚠️ Delete Task</h2>
+        <p class="text-light">Are you sure you want to delete <strong>"{{ task.title }}"</strong>?</p>
 
-    <form method="POST" class="text-center">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Delete</button>
-        <a href="{% url 'task_list' %}" class="btn btn-secondary">Cancel</a>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-glow mt-3 px-4 py-2 fw-bold">🗑️ Delete</button>
+            <a href="{% url 'task_list' %}" class="btn btn-outline-light mt-3 px-4 py-2 fw-bold">🔙 Cancel</a>
+        </form>
+    </div>
+
+    <style>
+        .delete-container {
+            background: rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 8px 20px rgba(255, 0, 0, 0.3);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .btn-glow {
+            background: linear-gradient(135deg, #ff4d4d, #ff0000);
+            color: white;
+            border: none;
+            box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+        .btn-glow:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0px 10px 20px rgba(255, 0, 0, 0.7);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 {% endblock %}

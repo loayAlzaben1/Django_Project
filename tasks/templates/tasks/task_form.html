@@ -1,28 +1,69 @@
 {% extends 'tasks/base.html' %}
 
 {% block content %}
-    <div class="form-container">
-        <h2 class="text-center">{% if form.instance.pk %}✏️ Edit Task{% else %}➕ Add Task{% endif %}</h2>
-        <form method="POST">
+    <div class="form-container shadow-lg p-4 rounded-lg animate-fade-in">
+        <h2 class="text-center fw-bold text-light mb-4">
+            {% if form.instance.pk %} ✏️ Edit Task {% else %} ➕ Add Task {% endif %}
+        </h2>
+        <form method="POST" class="glass-form">
             {% csrf_token %}
             <div class="mb-3">
-                <label class="form-label">Title</label>
+                <label class="form-label text-light fw-semibold">📌 Title</label>
                 {{ form.title }}
             </div>
             <div class="mb-3">
-                <label class="form-label">Description</label>
+                <label class="form-label text-light fw-semibold">📝 Description</label>
                 {{ form.description }}
             </div>
             <div class="mb-3">
-                <label class="form-label">Status</label>
+                <label class="form-label text-light fw-semibold">🚀 Status</label>
                 {{ form.status }}
             </div>
             <div class="mb-3">
-                <label class="form-label">Due Date</label>
+                <label class="form-label text-light fw-semibold">📅 Due Date</label>
                 {{ form.due_date }}
             </div>
-            <button type="submit" class="btn btn-success w-100">💾 Save Task</button>
-            <a href="{% url 'task_list' %}" class="btn btn-secondary w-100 mt-2">🔙 Cancel</a>
+            <button type="submit" class="btn btn-glow w-100 py-2 fw-bold">💾 Save Task</button>
+            <a href="{% url 'task_list' %}" class="btn btn-outline-light w-100 mt-3 py-2 fw-bold">🔙 Cancel</a>
         </form>
     </div>
+
+    <style>
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .glass-form input, .glass-form select, .glass-form textarea {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+        .glass-form input:focus, .glass-form select:focus, .glass-form textarea:focus {
+            outline: none;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+        }
+        .btn-glow {
+            background: linear-gradient(135deg, #ffcc00, #ff512f);
+            color: white;
+            border: none;
+            box-shadow: 0px 5px 15px rgba(255, 81, 47, 0.5);
+            transition: all 0.3s;
+        }
+        .btn-glow:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0px 10px 20px rgba(255, 81, 47, 0.7);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 {% endblock %}
